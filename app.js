@@ -1,7 +1,7 @@
 'use strict';
 
-//var urlapi = "http://127.0.0.1:3000/api/";
-var urlapi = "http://46.105.30.116:3000/api/";
+var urlapi = "http://127.0.0.1:3000/api/";
+//var urlapi = "http://46.105.30.116:3000/api/";
 
 // Declare app level module which depends on views, and components
 angular.module('app', [
@@ -11,6 +11,7 @@ angular.module('app', [
   'app.menu',
   'app.dashboard',
   'app.users',
+  'app.waterpipes',
   'app.view2'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
@@ -125,7 +126,8 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                 for(var i=0; i<users[j].following.length; i++) {
                     edges.push({
                         from: users[j]._id,
-                        to: users[j].following[i]._id
+                        to: users[j].following[i]._id,
+                        arrows:'to'
                     });
                 }
             }
