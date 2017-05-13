@@ -1,0 +1,22 @@
+<div class="row o_loginBackground" ng-hide="storageuser">
+    <div class="col s6 offset-s3" style="margin-top: 20%;">
+        <div class="row">
+            <div class="col s12">
+                <h1>waterAdmin</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input ng-model="loginData.email" id="email" type="text" class="validate">
+                <label for="email">Email</label>
+            </div>
+            <div class="input-field col s12">
+                <input ng-model="loginData.password" id="email" type="password" class="validate">
+                <label for="password">Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="waves-effect waves-light btn" ng-click="doLogin()">Log In</div>
+        </div>
+    </div>
+</div>

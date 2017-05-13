@@ -1,0 +1,16 @@
+{
+  "name": "desktopApp",
+  "description": "admin webapp",
+  "version": "0.0.0",
+  "homepage": "https://github.com/aqua-orbis/desktopApp",
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.5.0",
+    "angular-route": "~1.5.0",
+    "angular-loader": "~1.5.0",
+    "angular-mocks": "~1.5.0",
+    "materialize": "^0.98.2",
+    "angular-chart.js": "^1.1.1",
+    "angular-visjs": "^4.16.0"
+  }
+}

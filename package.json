@@ -1,0 +1,17 @@
+{
+  "name": "desktopApp",
+  "version": "1.0.0",
+  "description": "admin desktop App client",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aqua-orbis/desktopApp"
+  },
+  "devDependencies": {
+    "electron-prebuilt": "^1.2.0"
+  },
+  "license": "MIT"
+}

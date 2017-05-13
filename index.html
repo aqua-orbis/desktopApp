@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="app" class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>aqua-orbis</title>
+    <link rel="icon" type="image/png" href="img/water.png">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="bower_components/materialize/dist/css/materialize.min.css" media="screen,projection" />
+
+
+    <link rel="stylesheet" href="app.css">
+    <link rel="stylesheet" href="colors.css">
+</head>
+
+<body ng-controller="MenuCtrl">
+
+    <div ng-include="'views/topmenu.html'"></div>
+
+    <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+    <div class="row" ng-show="storageuser">
+        <div class="col s3 l2 c_bars">
+            <div ng-include="'views/sidemenu.html'"></div>
+        </div>
+
+        <div class="col s9 l10">
+            <div ng-view></div>
+        </div>
+
+    </div>
+
+    <div ng-hide="storageuser">
+        <div ng-include="'views/login.html'"></div>
+    </div>
+
+
+
+
+<!-- ELECTRON
+Insert this line above script imports
+Works for both browser and electron with the same code -->
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+
+
+    <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <script src="bower_components/chart.js/dist/Chart.min.js"></script>
+    <script src="bower_components/angular-chart.js/dist/angular-chart.min.js"></script>
+
+
+    <script src="bower_components/vis/dist/vis.js"></script>
+    <script src="bower_components/angular-visjs/angular-vis.js"></script>
+
+    <!-- materializecss -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.min.js"></script>
+
+    <!--maps-->
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAosEHe1OzfBdnMvKGgrwfMucIV5HtEnC4"></script>
+
+
+    <script src="app.js"></script>
+    <script src="views/menu.js"></script>
+    <script src="views/dashboard/dashboard.js"></script>
+    <script src="views/users/users.js"></script>
+    <script src="views/view2/view2.js"></script>
+
+
+
+<!-- ELECTRON
+Insert this line after script imports -->
+<script>if (window.module) module = window.module;</script>
+
+</body>
+
+</html>

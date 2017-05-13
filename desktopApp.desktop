@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=onPowerOn
+Comment=run some software
+GenericName=Runner
+Exec=bash -c 'electron .'
+Icon=img/water.png
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;Development;
+MimeType=text/plain;
