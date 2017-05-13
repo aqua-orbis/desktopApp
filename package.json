@@ -4,6 +4,7 @@
   "description": "admin desktop App client",
   "main": "main.js",
   "scripts": {
+    "prestart": "npm install",
     "start": "electron ."
   },
   "repository": {

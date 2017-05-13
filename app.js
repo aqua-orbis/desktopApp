@@ -1,6 +1,7 @@
 'use strict';
 
-var urlapi = "http://127.0.0.1:3000/api/";
+//var urlapi = "http://127.0.0.1:3000/api/";
+var urlapi = "http://46.105.30.116:3000/api/";
 
 // Declare app level module which depends on views, and components
 angular.module('app', [
@@ -19,7 +20,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   // if none of the above states are matched, use this as the fallback
   if ((localStorage.getItem("water_web_token")) && (JSON.parse(localStorage.getItem("water_web_userdata")) != "null") && (JSON.parse(localStorage.getItem("water_web_userdata")) != null)) {
           if ((window.location.hash == "#!/login") || (window.location.hash == "#!/signup")) {
-              window.location = '/dashboard';
+              window.location = '#!/dashboard';
           }
           $routeProvider.otherwise({redirectTo: '/dashboard'});
       } else {

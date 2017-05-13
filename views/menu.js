@@ -26,6 +26,7 @@ angular.module('app.menu', ['ngRoute'])
                         console.log("response: ");
                         console.log(response.data);
                         if (response.data.success == true) {
+                            console.log("logged");
                             localStorage.setItem("water_web_token", response.data.token);
                             localStorage.setItem("water_web_userdata", JSON.stringify(response.data.user));
                             window.location.reload();
