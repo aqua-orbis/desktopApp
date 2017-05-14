@@ -132,6 +132,24 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
                 }
             }
             return [nodes, edges];
+        },
+        publicationsToChart: function(publications) {
+            var data = [];
+            var labels = [];
+            for(var i=0; i<publications.length; i++) {
+                data.push(publications[i].likes.length);
+                labels.push("publication " + i);
+            }
+            return [data, labels];
+        },
+        followersToChart: function(followers) {
+            var data = [];
+            var labels = [];
+            for(var i=0; i<followers.length; i++) {
+                data.push(followers[i].following.length);
+                labels.push(followers[i].username);
+            }
+            return [data, labels];
         }
     };
 });

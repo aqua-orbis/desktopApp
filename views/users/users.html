@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col s4 card" style="height:400px; overflow-y:scroll;">
+    <div class="col s4 card" style="height:350px; overflow-y:scroll;">
             <ul class="collection">
                 <li class="collection-item" ng-click="showUsersNetwork()">
                     <div class="waves-effect waves-light btn">Show all</div>
@@ -18,7 +18,7 @@
     </div>
     <div class="col s8">
         <div class="card"
-            style="height:400px!important;">
+            style="height:350px!important;">
             <vis-network id="network" data="data" options="options"
             ></vis-network>
         </div>
@@ -28,22 +28,41 @@
 <div class="row">
     <div class="col s4">
         <div class="card">
-            <h4>User1</h4>
-            <p>
-                Description of the user
+            <h4>{{user.username}}</h4>
+            <p ng-show="user">
+                Has {{user.devices.length}} running devices
             </p>
-            <a href="" class="waves-effect waves-light btn">More info</a>
+            <p>
+                <ul class="collection">
+                    <li class="collection-item avatar"
+                    ng-repeat="device in devices">
+                        <img ng-src="img/iconDevice1.png" style="max-width: 50px;" alt="" class="circle">
+                        <span class="title">{{device.name}}</span>
+                        <span class="o_badge c_red400" ng-show="{{device.overPassed=='true'}}">Day limit!</span>
+
+                        <p>
+                            <b>{{device.registers.length}}</b> registers
+                        </p>
+                        <p ng-show="user.days">
+                            <b>{{user.days.length}}</b> days running
+                        </p>
+
+                    </li>
+                </ul>
+            </p>
         </div>
     </div>
     <div class="col s4">
         <div class="card">
-            <canvas id="line" class="chart chart-line" chart-data="dataChart" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+            Received Likes on publications
+            <canvas id="line" class="chart chart-line" chart-data="dataChartPublications" chart-labels="labelsChartPublications" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
             </canvas>
         </div>
     </div>
     <div class="col s4">
         <div class="card">
-            <canvas id="bar" class="chart chart-bar" chart-data="dataChart" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+            How many Publications has their followers
+            <canvas id="bar" class="chart chart-bar" chart-data="dataChartFollowers" chart-labels="labelsChartFollowers" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
             </canvas>
         </div>
     </div>

@@ -35,6 +35,9 @@ angular.module('app.users', ['ngRoute'])
         };
 
         $scope.user;
+        $scope.publications={};
+        $scope.followers={};
+        $scope.devices={};
         $scope.selectUser = function(user) {
             console.log("user " + user.username);
             $http.get(urlapi + "users/id/" + user._id)
@@ -54,12 +57,48 @@ angular.module('app.users', ['ngRoute'])
 
 
                 });
+
+            $http.get(urlapi + "publications/user/id/" + user._id)
+                .then(function(data) {
+                    console.log('data success events');
+                    console.log(data); // for browser console
+                    $scope.publications = data.data;
+                    var chartPublications = utils.publicationsToChart($scope.publications);
+                    $scope.dataChartPublications = chartPublications[0];
+                    $scope.labelsChartPublications = chartPublications[1];
+                }, function(data) {
+                    console.log('data error');
+
+
+                });
+            $http.get(urlapi + "users/whoisfollowingtheuser/" + user._id)
+                .then(function(data) {
+                    console.log('data success events');
+                    console.log(data); // for browser console
+                    $scope.followers = data.data;
+                    var chartFollowers = utils.followersToChart($scope.followers);
+                    $scope.dataChartFollowers = chartFollowers[0];
+                    $scope.labelsChartFollowers = chartFollowers[1];
+                }, function(data) {
+                    console.log('data error');
+
+
+                });
+
+            $http.get(urlapi + "/users/id/" + user._id + "/devices")
+                .then(function(data) {
+                    console.log('data success events');
+                    console.log(data); // for browser console
+                    $scope.devices = data.data;
+                }, function(data) {
+                    console.log('data error');
+                });
         };
 
         //network map
         var nodes = [];
         var edges = [];
-        $scope.data = {
+        $scope.chartPublicationsData = {
             nodes: nodes,
             edges: edges
         };
@@ -72,9 +111,5 @@ angular.module('app.users', ['ngRoute'])
 
         //chart
         $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
-        $scope.series = ['Series A', 'Series B'];
-        $scope.dataChart = [
-            [65, 59, 80, 81, 56, 55, 40],
-            [28, 48, 40, 19, 86, 27, 90]
-        ];
+        $scope.dataChart = [65, 59, 80, 81, 56, 55, 40];
     });

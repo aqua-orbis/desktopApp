@@ -45,3 +45,15 @@
     font-family: 'Otterly Adorable'
     /*font-weight: bold;*/
 }
+
+.o_floatRight{
+    float: right;
+}
+.o_textRight{
+    text-align: right;
+}
+.o_badge{
+    border-radius: 8px;
+    margin: 5px;
+    padding: 2px 5px;
+}
