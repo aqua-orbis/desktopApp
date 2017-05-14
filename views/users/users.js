@@ -112,4 +112,9 @@ angular.module('app.users', ['ngRoute'])
         //chart
         $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
         $scope.dataChart = [65, 59, 80, 81, 56, 55, 40];
+
+
+        $scope.round = function(val) {
+            return Math.round(val * 100)/100
+        };
     });

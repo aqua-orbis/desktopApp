@@ -38,8 +38,12 @@
                     ng-repeat="device in devices">
                         <img ng-src="img/iconDevice1.png" style="max-width: 50px;" alt="" class="circle">
                         <span class="title">{{device.name}}</span>
-                        <span class="o_badge c_red400" ng-show="{{device.overPassed=='true'}}">Day limit!</span>
-
+                        <span class="o_badge c_red400" ng-show="{{device.overPassed=='true'}}">
+                            Day limit reached!
+                        </span>
+                        <p>
+                            <b>{{round(device.days[device.days.length-1].value)}}</b> l/day
+                        </p>
                         <p>
                             <b>{{device.registers.length}}</b> registers
                         </p>
