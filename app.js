@@ -12,6 +12,9 @@ angular.module('app', [
   'app.dashboard',
   'app.users',
   'app.waterpipes',
+  'app.contracts',
+  'app.requirments',
+  'app.contacts',
   'app.view2'
 ]).
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
